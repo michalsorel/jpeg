@@ -11,20 +11,20 @@ and given the speed of the method, results are competitive with other state-of-t
 Note that some recent methods based on neural networks preserve slightly more details 
 but can hardly compete in speed.  
 
-*M. Šorel, M. Bartoš, Fast Bayesian JPEG decompression and denoising with tight frame priors, IEEE Trans. Image Process., 2017*  
+*M. Šorel, M. Bartoš, Fast Bayesian JPEG decompression and denoising with tight frame priors, IEEE Transactions on Image Processing, vol. 26, no. 1, pp. 490-501, Jan. 2017*  
 This paper provides a more detailed analysis of the MAP formulation of JPEG decompression with 
 priors given by the l1 norm of a tight frame operator. Important difference with respect to the 
 conference paper is that it considers a noise added in the image before compression. In other words, 
 we consider the situation of an image degraded by a noise and then compressed by the JPEG algorithm. 
 The task is to recover the original image by maximizing the posterior probability using the same priors 
 we use in the JPEG decompression. We also show that using Gaussian approximation instead of 
-the hard quantization constrain set surprisingly improves results. We derive how this (different) 
+the hard quantization constraint set surprisingly improves results. We derive how this (different) 
 formulation can be efficiently optimized by the ADMM.
 
 All our code is in Matlab. We read and parse JPEG files using the JPEG toolbox of Phil Sallee
 that requires compilation to mex files. We provide compiled mex files for 64-bit windows, though.
 For regularization, we use primarily the dual-tree complex wavelets (original code is included) but the algorithm 
-can use also orthogonal wavelets from the Matlab wavelet toolbox (Haar, db2, db3) or any combination of them.   
+can use also orthogonal wavelets from the Matlab wavelet toolbox (Haar, db2, db3), learned tight frames of Cai et al. or any combination of them.   
 
 ## Files and directories
 `start_on_jpeg.m` - elementary example script how to run a reconstruction of a JPEG-file.  
